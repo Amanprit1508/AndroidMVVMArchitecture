@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data>
+        <variable
+            name="loginUserViewModel"
+            type="com.trigyn.mvvmarcitectureexample.viewModel.LoginUserViewModel" />
+        
+    </data>
+        
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ui.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="80dp"
+        android:layout_marginTop="80dp"
+        android:background="@android:color/white"
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="Login">
+
+        </TextView>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_centerInParent="true"
+       android:orientation="vertical"
+       android:gravity="center">
+
+       <com.google.android.material.textfield.TextInputLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           app:hintTextColor="@color/teal_200">
+
+           <com.google.android.material.textfield.TextInputEditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:hint="email"
+               android:layout_marginLeft="20dp"
+               android:layout_marginRight="20dp"
+               android:inputType="textEmailAddress"
+               android:textColor="@color/black"
+               android:textSize="18sp"
+               android:maxLength="50"
+               android:cursorVisible="true"
+               android:text="@={loginUserViewModel.email}"
+               ></com.google.android.material.textfield.TextInputEditText>
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+       <com.google.android.material.textfield.TextInputLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           app:hintTextColor="@color/teal_200">
+
+           <com.google.android.material.textfield.TextInputEditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:hint="password"
+               android:layout_marginLeft="20dp"
+               android:layout_marginRight="20dp"
+               android:inputType="textPassword"
+               android:textColor="@color/black"
+               android:textSize="18sp"
+               android:maxLength="50"
+               android:cursorVisible="true"
+               android:text="@={loginUserViewModel.password}"
+               ></com.google.android.material.textfield.TextInputEditText>
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+       <Button
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_margin="20dp"
+           android:text="Login"
+           android:textColor="@color/white"
+           android:background="@color/black"
+           android:padding="10dp"
+           android:onClick="@{()->loginUserViewModel.onLoginClick()}"
+           ></Button>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/purple_700"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="New User ? Register"
+                android:onClick="@{()->loginUserViewModel.onRegistrationClick()}"
+                ></TextView>
+
+
+   </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
+</layout>
